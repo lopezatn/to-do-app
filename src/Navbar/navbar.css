@@ -1,0 +1,33 @@
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  z-index: var(--z-fixed);
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 1rem;
+}
+
+.navLogo {
+  color: white;
+  text-decoration: none;
+}
+
+.navLink {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  transition: color 0.4s;
+  text-decoration: none;
+}
+
+.navItem {
+  color: white;
+  list-style-type: none;
+}
