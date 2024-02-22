@@ -1,3 +1,5 @@
+import "./button.css";
+
 interface ButtonProps {
   buttonValue: string;
   onClick: () => void;
@@ -10,7 +12,12 @@ const Button = ({ buttonValue, onClick }: ButtonProps) => {
 
   return (
     <>
-      <input type="button" value={buttonValue} onClick={handleClick} />
+      <input
+        className="customButton"
+        type="button"
+        value={buttonValue}
+        onClick={handleClick}
+      />
     </>
   );
 };

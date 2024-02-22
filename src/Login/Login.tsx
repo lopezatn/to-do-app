@@ -29,14 +29,24 @@ const Login = () => {
   };
 
   return (
-    <>
-      <div className="login-container">
+    <div className="mainContainer">
+      <div className="titleContainer">
         <h2>Please log-in to proceed</h2>
-        <InputField label="Username" id="username" onChange={handleUsername} />
-        <InputField label="Password" id="userpass" onChange={handlePassword} />
-        <Button buttonValue="Login" onClick={handleClick} />
       </div>
-    </>
+
+      <InputField
+        id="username"
+        placeholder="username"
+        onChange={handleUsername}
+      />
+      <InputField
+        id="userpass"
+        type="password"
+        placeholder="password"
+        onChange={handlePassword}
+      />
+      <Button buttonValue="Login" onClick={handleClick} />
+    </div>
   );
 };
 

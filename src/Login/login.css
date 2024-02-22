@@ -1,6 +1,16 @@
-.login-container {
+.mainContainer {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.titleContainer {
   display: flex;
   flex-direction: column;
+  font-size: 24px;
+  font-weight: bolder;
   align-items: center;
-  padding-top: 25px;
+  justify-content: center;
 }
