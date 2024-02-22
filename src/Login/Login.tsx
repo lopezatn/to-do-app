@@ -1,6 +1,10 @@
 import { useState } from "react";
 import InputField from "../InputField/InputField";
 import "./login.css";
+import Button from "../Example/Button/Button";
+
+const USERNAME = "user";
+const PASSWORD = "password";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -16,12 +20,21 @@ const Login = () => {
     setPassword(userInput);
   };
 
+  const handleClick = () => {
+    if (username === USERNAME && password === PASSWORD) {
+      alert("Hi there");
+    } else {
+      alert("Oh no :(");
+    }
+  };
+
   return (
     <>
       <div className="login-container">
         <h2>Please log-in to proceed</h2>
         <InputField label="Username" id="username" onChange={handleUsername} />
         <InputField label="Password" id="userpass" onChange={handlePassword} />
+        <Button buttonValue="Login" onClick={handleClick} />
       </div>
     </>
   );
