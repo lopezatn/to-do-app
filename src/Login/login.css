@@ -14,3 +14,7 @@
   align-items: center;
   justify-content: center;
 }
+
+.siteLogo {
+  max-width: 115px;
+}

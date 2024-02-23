@@ -16,8 +16,7 @@
 }
 
 .navLogo {
-  color: white;
-  text-decoration: none;
+  max-width: 50px;
 }
 
 .navLink {
@@ -27,9 +26,15 @@
   text-decoration: none;
 }
 
+.navList {
+  display: flex;
+  flex-direction: row;
+}
+
 .navItem {
   color: #4caf50;
   list-style-type: none;
+  margin-right: 5px;
 }
 
 .navItem a:hover {

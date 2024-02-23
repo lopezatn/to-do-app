@@ -4,8 +4,9 @@ import "./login.css";
 import Button from "../Example/Button/Button";
 import Footer from "../Footer/Footer";
 import RegisterLink from "../RegisterLink/RegisterLink";
+import logo from "../images/logo.png";
 
-const USERNAME = "user";
+const USERNAME = "username";
 const PASSWORD = "password";
 
 const Login = () => {
@@ -24,9 +25,9 @@ const Login = () => {
 
   const handleClick = () => {
     if (username === USERNAME && password === PASSWORD) {
-      alert("Hi there");
+      alert("Smart...");
     } else {
-      alert("Oh no :(");
+      alert("No access");
     }
   };
 
@@ -34,6 +35,7 @@ const Login = () => {
     <>
       <div className="mainContainer">
         <div className="titleContainer">
+          <img className="siteLogo" src={logo} alt="logo" />
           <h2>Please log-in to proceed</h2>
         </div>
 
