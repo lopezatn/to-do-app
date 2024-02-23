@@ -1,7 +1,8 @@
 import { useState } from "react";
 import InputField from "../../InputField/InputField";
+import "./RegistrationForm.css";
 
-const Register = () => {
+const RegistrationForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -45,4 +46,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegistrationForm;

@@ -3,6 +3,7 @@ import InputField from "../InputField/InputField";
 import "./login.css";
 import Button from "../Example/Button/Button";
 import Footer from "../Footer/Footer";
+import RegisterLink from "../RegisterLink/RegisterLink";
 
 const USERNAME = "user";
 const PASSWORD = "password";
@@ -48,6 +49,7 @@ const Login = () => {
           onChange={handlePassword}
         />
         <Button buttonValue="Login" onClick={handleClick} />
+        <RegisterLink />
       </div>
       <Footer />
     </>

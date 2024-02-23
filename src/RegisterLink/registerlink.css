@@ -1,0 +1,32 @@
+.registerContainer {
+  display: flex;
+  position: fixed;
+  bottom: 6%;
+  right: 1%;
+  width: 15%;
+  height: 15%;
+  background-color: #333;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 75px;
+}
+
+.registerContainer h3 {
+  color: whitesmoke;
+  font-weight: 400;
+}
+
+.registerContainer a {
+  color: #4caf50;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.registerContainer a:hover {
+  color: #10ec1b;
+}
+
+.registerContainer a:active {
+  color: #3e8948;
+}

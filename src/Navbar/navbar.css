@@ -28,6 +28,15 @@
 }
 
 .navItem {
-  color: white;
+  color: #4caf50;
   list-style-type: none;
+}
+
+.navItem a:hover {
+  color: #10ec1b;
+  list-style-type: none;
+}
+
+.navItem a:active {
+  color: #3e8948;
 }
