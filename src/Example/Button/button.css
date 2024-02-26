@@ -18,3 +18,10 @@
 .customButton:active {
   background: #3e8948;
 }
+
+.customButton:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  transition: none;
+}

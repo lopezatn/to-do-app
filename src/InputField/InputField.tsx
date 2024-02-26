@@ -7,6 +7,7 @@ export interface InputFieldProps {
   id: string;
   type?: string;
   placeholder: string;
+  onKeyDown?: React.KeyboardEventHandler<HTMLInputElement>;
   onChange?: (value: string) => void;
 }
 
@@ -14,6 +15,7 @@ const InputField = ({
   type = DEFAULT_TYPE,
   placeholder,
   id,
+  onKeyDown,
   onChange,
 }: InputFieldProps) => {
   const [empty, setEmpty] = useState(true);
@@ -26,8 +28,13 @@ const InputField = ({
 
   return (
     <>
-      <label className={empty ? "custom-field" : "custom-field-not-empty"}>
-        <input type={type} id={id} onChange={handleChange} />
+      <label className={empty ? "input-field-empty" : "input-field-not-empty"}>
+        <input
+          type={type}
+          id={id}
+          onKeyDown={onKeyDown}
+          onChange={handleChange}
+        />
         <span className="placeholder">{placeholder}</span>
       </label>
     </>

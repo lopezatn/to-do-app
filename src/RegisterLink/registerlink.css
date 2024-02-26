@@ -30,3 +30,17 @@
 .registerContainer a:active {
   color: #3e8948;
 }
+
+@media (max-width: 1320px) {
+  .registerContainer {
+    width: 35%;
+    height: 15%;
+  }
+  .registerContainer h3 {
+    font-size: 12px;
+  }
+
+  .registerContainer a {
+    font-size: 12px;
+  }
+}

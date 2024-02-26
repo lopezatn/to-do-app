@@ -4,13 +4,13 @@
   box-sizing: border-box;
 }
 
-.custom-field {
+.input-field-empty {
   font-size: 14px;
   position: relative;
   border-top: 20px solid transparent;
 }
 
-.custom-field input {
+.input-field-empty input {
   border: none;
   -webkit-appearance: none;
   -ms-appearance: none;
@@ -23,7 +23,7 @@
   font-size: 14px;
 }
 
-.custom-field .placeholder {
+.input-field-empty .placeholder {
   position: absolute;
   left: 12px;
   top: 22px;
@@ -35,17 +35,17 @@
   text-overflow: ellipsis;
 }
 
-.custom-field input:focus + .placeholder {
+.input-field-empty input:focus + .placeholder {
   top: -10px;
   font-size: 12px;
   color: #222;
 }
 
-.custom-field .placeholder {
+.input-field-empty .placeholder {
   transition: top 0.3s ease, color 0.3s ease, font-size 0.3s ease;
 }
 
-.custom-field-not-empty .placeholder {
+.input-field-not-empty .placeholder {
   position: absolute;
   left: 12px;
   top: -10px;
@@ -53,12 +53,9 @@
   transform: translateY(-50%);
   width: calc(100% - 24px);
   color: #222;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
-.custom-field-not-empty input {
+.input-field-not-empty input {
   border: none;
   -webkit-appearance: none;
   -ms-appearance: none;
@@ -71,7 +68,7 @@
   font-size: 14px;
 }
 
-.custom-field-not-empty {
+.input-field-not-empty {
   font-size: 14px;
   position: relative;
   border-top: 20px solid transparent;

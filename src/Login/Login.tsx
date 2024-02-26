@@ -12,6 +12,9 @@ const PASSWORD = "password";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(false);
+
+  let isDisabled = username === "" && password === "";
 
   const handleUsername = (value: string) => {
     const userInput = value;
@@ -25,15 +28,23 @@ const Login = () => {
 
   const handleClick = () => {
     if (username === USERNAME && password === PASSWORD) {
-      alert("Smart...");
+      setErrorMessage(false);
+      console.log(errorMessage);
     } else {
-      alert("No access");
+      setErrorMessage(true);
+      console.log(errorMessage);
+    }
+  };
+
+  const keyDown = (e: any) => {
+    if (e.key === "Enter") {
+      handleClick();
     }
   };
 
   return (
     <>
-      <div className="mainContainer">
+      <section className="mainContainer">
         <div className="titleContainer">
           <img className="siteLogo" src={logo} alt="logo" />
           <h2>Please log-in to proceed</h2>
@@ -43,16 +54,26 @@ const Login = () => {
           id="username"
           placeholder="username"
           onChange={handleUsername}
+          onKeyDown={keyDown}
         />
         <InputField
           id="userpass"
           type="password"
           placeholder="password"
           onChange={handlePassword}
+          onKeyDown={keyDown}
         />
-        <Button buttonValue="Login" onClick={handleClick} />
+        <label className="errorMessage">
+          {errorMessage ? "Incorrect username or password" : ""}
+        </label>
+        <Button
+          id="Button"
+          buttonValue="Login"
+          isDisabled={isDisabled}
+          onClick={handleClick}
+        />
         <RegisterLink />
-      </div>
+      </section>
       <Footer />
     </>
   );

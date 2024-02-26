@@ -3,6 +3,17 @@ import "./navbar.css";
 import logo from "../images/logo.png";
 
 const Navbar = () => {
+  // const login = (
+  //   <NavLink to="/Login" className="navLink">
+  //     Login
+  //   </NavLink>
+  // );
+  // const logout = (
+  //   <NavLink to="/Login" className="navLink">
+  //     Login
+  //   </NavLink>
+  // );
+
   return (
     <>
       <header className="header">

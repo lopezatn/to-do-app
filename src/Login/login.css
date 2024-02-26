@@ -18,3 +18,8 @@
 .siteLogo {
   max-width: 115px;
 }
+
+.errorMessage {
+  color: red;
+  size: 16px;
+}
