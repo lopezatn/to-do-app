@@ -5,9 +5,7 @@ import Button from "../Example/Button/Button";
 import Footer from "../Footer/Footer";
 import RegisterLink from "../RegisterLink/RegisterLink";
 import logo from "../images/logo.png";
-
-const USERNAME = "username";
-const PASSWORD = "password";
+import loginUser from "../mockedService";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -27,12 +25,16 @@ const Login = () => {
   };
 
   const handleClick = () => {
-    if (username === USERNAME && password === PASSWORD) {
-      setErrorMessage(false);
-      console.log(errorMessage);
-    } else {
+    try {
+      const result = loginUser(username, password);
+      if (result === undefined) {
+        setErrorMessage(true);
+      } else {
+        setErrorMessage(false);
+      }
+    } catch (error) {
+      console.error(error);
       setErrorMessage(true);
-      console.log(errorMessage);
     }
   };
 
