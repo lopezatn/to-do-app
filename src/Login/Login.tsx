@@ -11,6 +11,7 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   let isDisabled = username === "" && password === "";
 
@@ -31,6 +32,7 @@ const Login = () => {
         setErrorMessage(true);
       } else {
         setErrorMessage(false);
+        setIsLoggedIn(true);
       }
     } catch (error) {
       console.error(error);

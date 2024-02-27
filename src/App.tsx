@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./Login/Login";
 import Navbar from "./Navbar/Navbar";
 import RegistrationForm from "./Example/RegistrationForm/RegistrationForm";
+import loginUser from "./mockedService";
 
 function App() {
   return (
