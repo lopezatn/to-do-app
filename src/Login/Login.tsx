@@ -6,12 +6,15 @@ import Footer from "../Footer/Footer";
 import RegisterLink from "../RegisterLink/RegisterLink";
 import logo from "../images/logo.png";
 import loginUser from "../mockedService";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/slices/userSlice";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const dispatch = useDispatch();
 
   let isDisabled = username === "" && password === "";
 
@@ -32,11 +35,11 @@ const Login = () => {
         setErrorMessage(true);
       } else {
         setErrorMessage(false);
-        setIsLoggedIn(true);
+        console.log(result);
+        dispatch(login(result));
       }
     } catch (error) {
       console.error(error);
-      setErrorMessage(true);
     }
   };
 
