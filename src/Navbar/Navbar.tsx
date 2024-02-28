@@ -1,18 +1,11 @@
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
 import logo from "../images/logo.png";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/rootReducer";
 
 const Navbar = () => {
-  // const login = (
-  //   <NavLink to="/Login" className="navLink">
-  //     Login
-  //   </NavLink>
-  // );
-  // const logout = (
-  //   <NavLink to="/Login" className="navLink">
-  //     Login
-  //   </NavLink>
-  // );
+  const isAuthenticated = useSelector((state: RootState) => state.user);
 
   return (
     <>
@@ -23,15 +16,23 @@ const Navbar = () => {
           </NavLink>
           <ul className="navList">
             <li className="navItem">
-              <NavLink to="/Login" className="navLink">
-                Login
-              </NavLink>
-            </li>
-            <li className="navItem">
               <NavLink to="/Register" className="navLink">
                 Register
               </NavLink>
             </li>
+            {isAuthenticated ? (
+              <li className="navItem">
+                <NavLink to="/Logout" className="navLink">
+                  Logout
+                </NavLink>
+              </li>
+            ) : (
+              <li className="navItem">
+                <NavLink to="/Login" className="navLink">
+                  Login
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
