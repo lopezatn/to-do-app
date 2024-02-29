@@ -15,11 +15,6 @@ const Navbar = () => {
             <img className="navLogo" src={logo} alt="logo" />
           </NavLink>
           <ul className="navList">
-            <li className="navItem">
-              <NavLink to="/Register" className="navLink">
-                Register
-              </NavLink>
-            </li>
             {isAuthenticated ? (
               <li className="navItem">
                 <NavLink to="/Logout" className="navLink">
@@ -33,6 +28,11 @@ const Navbar = () => {
                 </NavLink>
               </li>
             )}
+            <li className="navItem">
+              <NavLink to="/Register" className="navLink">
+                Register
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>

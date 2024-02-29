@@ -21,11 +21,13 @@ const Login = () => {
   const handleUsername = (value: string) => {
     const userInput = value;
     setUsername(userInput);
+    setErrorMessage(false);
   };
 
   const handlePassword = (value: string) => {
     const userInput = value;
     setPassword(userInput);
+    setErrorMessage(false);
   };
 
   const handleClick = () => {
@@ -48,7 +50,6 @@ const Login = () => {
       handleClick();
     }
   };
-
   return (
     <>
       <section className="mainContainer">
