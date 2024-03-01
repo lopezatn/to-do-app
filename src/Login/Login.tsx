@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputField from "../InputField/InputField";
 import "./login.css";
-import Button from "../Example/Button/Button";
+import Button from "../Button/Button";
 import Footer from "../Footer/Footer";
 import RegisterLink from "../RegisterLink/RegisterLink";
 import logo from "../images/logo.png";

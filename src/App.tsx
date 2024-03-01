@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./Login/Login";
 import Navbar from "./Navbar/Navbar";
-import RegistrationForm from "./Example/RegistrationForm/RegistrationForm";
+import Register from "./RegistrationForm/Register";
 import { useSelector } from "react-redux";
 import { RootState } from "./redux/rootReducer";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
@@ -18,7 +18,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/Login" element={<Login />} />
-        <Route path="/Register" element={<RegistrationForm />} />
+        <Route path="/Register" element={<Register />} />
         <Route
           path="/Logout"
           element={

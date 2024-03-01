@@ -6,7 +6,7 @@ const RegisterLink = () => {
     <>
       <div className="registerContainer">
         <h3>I don't have an account</h3>
-        <Link to="/RegistrationForm">Register Account</Link>
+        <Link to="/Register">Register Account</Link>
       </div>
     </>
   );
