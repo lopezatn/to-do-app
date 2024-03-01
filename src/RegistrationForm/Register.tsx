@@ -20,9 +20,27 @@ const Register = () => {
         <h2>Register to continue</h2>
       </div>
 
-      <input {...register("username")} type="text" placeholder="username" />
-      <input {...register("password")} type="password" placeholder="password" />
-      <input {...register("email")} type="email" placeholder="email" />
+      <input
+        {...register("username", { required: true })}
+        type="text"
+        placeholder="username"
+      />
+
+      <input
+        {...register("password", { required: true, minLength: 8 })}
+        type="password"
+        placeholder="password"
+      />
+
+      <input
+        {...register("email", {
+          required: true,
+          validate: (value: string) => value.includes("@"),
+        })}
+        type="email"
+        placeholder="email"
+      />
+
       <button type="submit">Register</button>
     </form>
   );
