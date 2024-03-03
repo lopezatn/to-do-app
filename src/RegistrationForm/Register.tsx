@@ -1,5 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import "./register.css";
+import Button from "../Button/Button";
 
 type FormFields = {
   username: string;
@@ -8,11 +9,7 @@ type FormFields = {
 };
 
 const Register = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<FormFields>();
+  const { register, handleSubmit, formState } = useForm<FormFields>();
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -26,16 +23,18 @@ const Register = () => {
       </div>
 
       <input
+        className="input-field"
         {...register("username", {
           required: "Username is required",
         })}
         type="text"
         placeholder="username"
       />
-      {errors.username && (
-        <div className="red-text">{errors.username.message}</div>
+      {formState.errors.username && (
+        <div className="red-text">{formState.errors.username.message}</div>
       )}
       <input
+        className="input-field"
         {...register("password", {
           required: "Password is required",
           minLength: {
@@ -46,10 +45,11 @@ const Register = () => {
         type="password"
         placeholder="password"
       />
-      {errors.password && (
-        <div className="red-text">{errors.password.message}</div>
+      {formState.errors.password && (
+        <div className="red-text">{formState.errors.password.message}</div>
       )}
       <input
+        className="input-field"
         {...register("email", {
           required: "Email is required",
           validate: (value) => {
@@ -62,10 +62,16 @@ const Register = () => {
         type="email"
         placeholder="email"
       />
-      {errors.email && <div className="red-text">{errors.email.message}</div>}
+      {formState.errors.email && (
+        <div className="red-text">{formState.errors.email.message}</div>
+      )}
 
-      <button disabled={isSubmitting} type="submit">
-        {isSubmitting ? "Loading..." : "Register"}
+      <button
+        className="submit-button"
+        disabled={formState.isSubmitting || !formState.isValid}
+        type="submit"
+      >
+        {formState.isSubmitting ? "Loading..." : "Register"}
       </button>
     </form>
   );

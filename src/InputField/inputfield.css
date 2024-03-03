@@ -1,9 +1,3 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 .input-field-empty {
   font-size: 14px;
   position: relative;

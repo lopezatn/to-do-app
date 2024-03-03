@@ -1,16 +1,17 @@
 import "./button.css";
 
 interface ButtonProps {
-  buttonValue: string;
+  value: string;
+  type: string;
   id: string;
   isDisabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 // what is in?
-const Button = ({ buttonValue, id, isDisabled, onClick }: ButtonProps) => {
+const Button = ({ value, type, id, isDisabled, onClick }: ButtonProps) => {
   const handleClick = (event: any) => {
-    onClick();
+    onClick?.();
   };
 
   // what is out?
@@ -18,10 +19,10 @@ const Button = ({ buttonValue, id, isDisabled, onClick }: ButtonProps) => {
     <>
       <input
         className={`customButton`}
-        type="button"
+        type={type}
         id={id}
         disabled={isDisabled}
-        value={buttonValue}
+        value={value}
         onClick={handleClick}
       />
     </>

@@ -16,7 +16,7 @@ const Login = () => {
 
   const dispatch = useDispatch();
 
-  let isDisabled = username === "" && password === "";
+  let isDisabled = username === "" || password === "";
 
   const handleUsername = (value: string) => {
     const userInput = value;
@@ -76,7 +76,8 @@ const Login = () => {
         </label>
         <Button
           id="Button"
-          buttonValue="Login"
+          type="button"
+          value="Login"
           isDisabled={isDisabled}
           onClick={handleClick}
         />
