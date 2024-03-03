@@ -8,9 +8,14 @@ type FormFields = {
 };
 
 const Register = () => {
-  const { register, handleSubmit } = useForm<FormFields>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormFields>();
 
-  const onSubmit: SubmitHandler<FormFields> = (data) => {
+  const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     console.log(data);
   };
 
@@ -21,27 +26,47 @@ const Register = () => {
       </div>
 
       <input
-        {...register("username", { required: true })}
+        {...register("username", {
+          required: "Username is required",
+        })}
         type="text"
         placeholder="username"
       />
-
+      {errors.username && (
+        <div className="red-text">{errors.username.message}</div>
+      )}
       <input
-        {...register("password", { required: true, minLength: 8 })}
+        {...register("password", {
+          required: "Password is required",
+          minLength: {
+            value: 8,
+            message: "Password must have 8 characters",
+          },
+        })}
         type="password"
         placeholder="password"
       />
-
+      {errors.password && (
+        <div className="red-text">{errors.password.message}</div>
+      )}
       <input
         {...register("email", {
-          required: true,
-          validate: (value: string) => value.includes("@"),
+          required: "Email is required",
+          validate: (value) => {
+            if (!value.includes("@")) {
+              return "Email must include @";
+            }
+            return true;
+          },
         })}
         type="email"
         placeholder="email"
       />
+      {errors.email && <div className="red-text">{errors.email.message}</div>}
 
-      <button type="submit">Register</button>
+      <button disabled={isSubmitting} type="submit">
+        {isSubmitting ? "Loading..." : "Register"}
+      </button>
     </form>
   );
 };
