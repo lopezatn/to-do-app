@@ -1,6 +1,8 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import "./register.css";
-import Button from "../Button/Button";
+import { saveToLocalStorage } from "../utils/localStorage";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 type FormFields = {
   username: string;
@@ -9,12 +11,18 @@ type FormFields = {
 };
 
 const Register = () => {
-  const { register, handleSubmit, formState } = useForm<FormFields>();
+  const { register, handleSubmit, formState, reset } = useForm<FormFields>();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
+    saveToLocalStorage("formData", data);
+    navigate("/login");
   };
+
+  useEffect(() => {
+    reset();
+  }, [formState.isSubmitSuccessful]);
 
   return (
     <form className="mainContainer" onSubmit={handleSubmit(onSubmit)}>
@@ -68,7 +76,7 @@ const Register = () => {
 
       <button
         className="submit-button"
-        disabled={formState.isSubmitting || !formState.isValid}
+        disabled={formState.isSubmitting}
         type="submit"
       >
         {formState.isSubmitting ? "Loading..." : "Register"}
